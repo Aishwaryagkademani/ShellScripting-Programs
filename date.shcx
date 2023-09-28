@@ -1,0 +1,7 @@
+
+#!/bin/bash -x
+a=date +%d
+b=date +%m
+echo $a;
+echo $b;
+
