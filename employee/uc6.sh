@@ -1,0 +1,24 @@
+perHrSal=20;
+workingHr=0;
+totalsal=0;
+totalworkHr=0;
+day=1;
+while [ $day -le 20 ] && [ $totalworkHr -lt 40 ]
+do
+	present=$((RANDOM%3));
+	case $present in
+		0) workingHr=0;;
+		1) workingHr=8;;
+		2) workingHr=4;;
+	esac
+	totalworkHr=$(($workingHr+$totalworkHr))
+	if [ $totalworkHr -gt 40 ]
+	then
+		totalworkHr=$(($totalworkHr-$workingHr));
+		break;
+	fi
+	salary=$(($perHrSal*$workingHr));
+	totalsal=$(($totalsal+$salary));
+((day++));
+done
+echo "Employee has earned $totalsal$ in a month (Total working hour : $totalworkHr)";
